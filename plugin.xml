@@ -24,14 +24,11 @@
     id="com.polychrom.cordova.AccountManagerPlugin"
     version="0.1.0">
     <name>Account Manager</name>
-    <description>Cordova Device Plugin</description>
+    <description>An Android AccountManager plugin for Apache Cordova.</description>
     <license>Apache 2.0</license>
     <keywords>cordova,account,android</keywords>
 
-    <repo>https://github.com/vishalkardode/cordova-android-accountmanager.git</repo>
-    <!-- TODO:
-    <issue>https://issues.apache.org/jira/browse/CB/component/12320648</issue>
-    -->
+    <repo>https://github.com/polychrom/cordova-android-accountmanager.git</repo>
 
     <js-module src="www/js/accountmanager.js" name="accountmanager">
         <clobbers target="accountmanager" />

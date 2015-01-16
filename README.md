@@ -57,16 +57,14 @@ Project Setup
 
 ### Installation - Cordova Command Line
 
-No Need to Copy or edit any file manually. Just Run Following Command and you are ready to use Account Manager (See Basic Usage above).
-
-	$ cordova plugin add https://github.com/vishalkardode/cordova-android-accountmanager.git
+`cordova plugin add https://github.com/polychrom/cordova-android-accountmanager.git`
 
 ### Installation - Manual ( Step 1 )
 
-1. Copy (or link) all the .java files into your project src (under the appropriate com.polychrom.cordova package).
-2. Copy accountmanager.js into your cordova app's www directory
-3. Add `<script charset="utf-8" src="accountmanager.js"></script>` to your cordova app's HTML.
-4. Copy (or link) authenticator.xml to your project's res/xml/ folder.
+# Copy (or link) all the .java files into your project src (under the appropriate com.polychrom.cordova package).
+# Copy accountmanager.js into your cordova app's www directory
+# Add `<script charset="utf-8" src="accountmanager.js"></script>` to your cordova app's HTML.
+# Copy (or link) authenticator.xml to your project's res/xml/ folder.
 
 ### Installation - Manual ( Step 2 ) - Edit Android Manifest for Authenticator Service
 
@@ -88,5 +86,12 @@ Depending on the level of usage, the following permissions may be required by th
  * [android.permission.AUTHENTICATE_ACCOUNTS](http://developer.android.com/reference/android/Manifest.permission.html#AUTHENTICATE_ACCOUNTS)
  * [android.permission.GET_ACCOUNTS](http://developer.android.com/reference/android/Manifest.permission.html#GET_ACCOUNTS)
  * [android.permission.USE_CREDENTIALS](http://developer.android.com/reference/android/Manifest.permission.html#USE_CREDENTIALS)
+ 
+### Configuration options
+
+This plugin can be configured via Android string resources (res/values/strings.xml) as follows:
+
+* **[required]** `aam_account_type`: Specifies the plugin's authenticator account type (this value must match the first parameter passed into accountmanager.addAccountExplicitly)
+	<string name="aam_account_type">MyCustomAccountName</string>
 
 See the [AccountManager documentation](http://developer.android.com/reference/android/accounts/AccountManager.html) for specific requirements for each function.

@@ -46,7 +46,7 @@ public class AccountManagerPlugin extends CordovaPlugin
 	{
 		for(Entry<Integer, Account> e: accounts.entrySet())
 		{
-			if(e.getValue() == account)
+			if(e.getValue().equals(account))
 			{
 				return e.getKey();
 			}
@@ -74,7 +74,6 @@ public class AccountManagerPlugin extends CordovaPlugin
 				for(Account account: account_list)
 				{
 					Integer index = indexForAccount(account);
-					accounts.put(index, account);
 	
 					JSONObject account_object = new JSONObject();
 					account_object.put("_index", (int)index);
@@ -127,8 +126,6 @@ public class AccountManagerPlugin extends CordovaPlugin
 					callbackContext.error("Account with username already exists!");
 					return true;
 				}
-				
-				accounts.put(index, account);
 				
 				JSONObject result = new JSONObject();
 				result.put("_index", (int)index);

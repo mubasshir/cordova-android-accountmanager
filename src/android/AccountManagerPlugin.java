@@ -283,7 +283,7 @@ public class AccountManagerPlugin extends CordovaPlugin
 					callbackContext.error("authTokenType can not be null or empty");
 					return true;
 				}
-				else if(args.isNull(3))
+				else if(args.isNull(2))
 				{
 					callbackContext.error("notifyAuthFailure can not be null");
 					return true;
@@ -300,7 +300,7 @@ public class AccountManagerPlugin extends CordovaPlugin
 				// TODO: Options support (will be relevent when we support AccountManagers)
 				
 				// TODO: AccountManager support
-				AccountManagerFuture<Bundle> future = manager.getAuthToken(account, args.getString(1), options, args.getBoolean(3), null, null);
+				AccountManagerFuture<Bundle> future = manager.getAuthToken(account, args.getString(1), options, args.getBoolean(2), null, null);
 				try
 				{
 					JSONObject result = new JSONObject();

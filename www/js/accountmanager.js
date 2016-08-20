@@ -58,7 +58,7 @@ AccountManager.prototype.getAuthToken = function(account, authTokenType, notifyA
 	return cordova.exec(
 		function(result) { callback(undefined, result.value); },
 		callback,
-		'AccountManager', 'getAuthToken', [account, authTokenType, notifyAuthFailure]);
+		'AccountManager', 'getAuthToken', [account._index, authTokenType, notifyAuthFailure]);
 };
 
 AccountManager.prototype.setPassword = function(account, password, callback)

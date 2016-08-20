@@ -34,6 +34,11 @@ Basic Usage (Explicit account handling)
 		{
 			console.log("Bob's password: " + password);
 		});
+		
+		am.setAuthToken(bob, 'authtoken', 'secret token');
+		am.getAuthToken(bob, 'authtoken', true, function(error, token) {
+			console.log("Bob's token: " + token);
+		});
 
 		// Get/Set user data
 		am.setUserData(bob, 'age', 30);

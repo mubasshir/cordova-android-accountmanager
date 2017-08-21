@@ -1,0 +1,24 @@
+{
+  "name": "com.polychrom.cordova.AccountManagerPlugin",
+  "version": "0.1.0",
+  "description": "This plugin allows Phonegap applications to manage Wifi connections.",
+  "cordova": {
+    "id": "com.polychrom.cordova.AccountManagerPlugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubasshir/cordova-android-accountmanager.git"
+  },
+  "keywords": [
+    "cordova"
+  ],
+  "author": "Mubasshir Pawle",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/mubasshir/cordova-android-accountmanager/issues"
+  },
+  "homepage": "https://github.com/mubasshir/cordova-android-accountmanager#readme"
+}

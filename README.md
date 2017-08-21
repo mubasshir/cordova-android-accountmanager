@@ -62,7 +62,7 @@ Project Setup
 
 ### Installation - Cordova Command Line
 
-`cordova plugin add https://github.com/polychrom/cordova-android-accountmanager.git`
+`cordova plugin add https://github.com/mubasshir/cordova-android-accountmanager.git`
 
 ### Installation - Manual ( Step 1 )
 

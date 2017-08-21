@@ -61,12 +61,12 @@ AccountManager.prototype.getAuthToken = function(account, authTokenType, notifyA
 		'AccountManager', 'getAuthToken', [account._index, authTokenType, notifyAuthFailure]);
 };
 
-AccountManager.prototype.getAuthTokenByFeatures = function(account, authTokenType, notifyAuthFailure, callback)
+AccountManager.prototype.getAuthTokenByFeatures = function(accountType, authTokenType, notifyAuthFailure, callback)
 {
 	return cordova.exec(
 		function(result) { callback(undefined, result.value); },
 		callback,
-		'AccountManager', 'getAuthToken', [account, authTokenType, notifyAuthFailure]);
+		'AccountManager', 'getAuthTokenByFeatures', [accountType, authTokenType, notifyAuthFailure]);
 };
 
 AccountManager.prototype.setPassword = function(account, password, callback)

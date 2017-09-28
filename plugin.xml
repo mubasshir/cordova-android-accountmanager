@@ -41,6 +41,7 @@
 		<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 		<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+		<uses-permission android:name="android.permission.READ_CONTACTS"/>
 	</config-file>
 
 	<resource-file src="res/xml/authenticator.xml" target="res/xml/authenticator.xml" />

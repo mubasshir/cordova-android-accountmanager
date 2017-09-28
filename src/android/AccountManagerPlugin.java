@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import android.R.string;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
@@ -68,12 +69,13 @@ public class AccountManagerPlugin extends CordovaPlugin
 		{
 			if ("getAccountsByFeatures".equals(action)) {
 				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures(args.isNull(0)? null : args.getString(0), "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
+				    
 				    @Override
 				    public void run(AccountManagerFuture<Bundle> future) {
 					Bundle bnd = null;
 					try {
 					    bnd = future.getResult();
-					    final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
+					    String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
 
 					    Log.d("", ((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL"));
 					    if (authtoken != null) {

@@ -66,7 +66,30 @@ public class AccountManagerPlugin extends CordovaPlugin
 
 		try
 		{
-			if("getAccountsByType".equals(action))
+			if ("getAccountsByFeatures".equals(action)) {
+				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures("", "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
+				    @Override
+				    public void run(AccountManagerFuture<Bundle> future) {
+					Bundle bnd = null;
+					try {
+					    bnd = future.getResult();
+					    final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
+
+					    Log.d("", ((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL"));
+					    if (authtoken != null) {
+						JSONObject result = new JSONObject();
+						result.put("value", authtoken);
+						callbackContext.success(result);
+					    } else {
+						callbackContext.error("No Token found");
+					    }
+					} catch (Exception e) {
+					    callbackContext.error("Authenticator error: " + e.getLocalizedMessage());
+					}
+				    }
+				}, null);
+			    }
+			else if("getAccountsByType".equals(action))
 			{
 				Account[] account_list = manager.getAccountsByType(args.isNull(0)? null : args.getString(0));
 				JSONArray result = new JSONArray();

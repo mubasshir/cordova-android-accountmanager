@@ -67,7 +67,7 @@ public class AccountManagerPlugin extends CordovaPlugin
 		try
 		{
 			if ("getAccountsByFeatures".equals(action)) {
-				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures("", "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
+				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures(args.isNull(0)? null : args.getString(0), "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
 				    @Override
 				    public void run(AccountManagerFuture<Bundle> future) {
 					Bundle bnd = null;

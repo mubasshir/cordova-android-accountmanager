@@ -4,6 +4,13 @@
 // see LICENSE file for full definition.
 
 var AccountManager = function() {};
+AccountManager.prototype.getAccountsByFeatures = function(type, callback)
+{
+	return cordova.exec(
+		function(accounts) { callback(undefined, accounts) },
+		callback,
+		'AccountManager', 'getAccountsByFeatures', [type]);
+};
 
 AccountManager.prototype.getAccountsByType = function(type, callback)
 {

@@ -68,27 +68,25 @@ public class AccountManagerPlugin extends CordovaPlugin
 		try
 		{
 			if ("getAccountsByFeatures".equals(action)) {
-				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures(args.isNull(0)? null : args.getString(0), "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
-				    
-				    @Override
-				    public void run(AccountManagerFuture<Bundle> future) {
-					Bundle bnd = null;
-					try {
-					    bnd = future.getResult();
-					    String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
+				AccountManagerFuture<Bundle> future = manager.getAuthTokenByFeatures(args.isNull(0) ? null : args.getString(0), "Full access", null, cordova.getActivity(), null, null, new AccountManagerCallback<Bundle>() {
+					@Override
+					public void run(AccountManagerFuture<Bundle> future) {
+						Bundle bnd = null;
+						try {
+							bnd = future.getResult();
+							String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
 
-					    Log.d("", ((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL"));
-					    if (authtoken != null) {
-						JSONObject result = new JSONObject();
-						result.put("value", authtoken);
-						callbackContext.success(result);
-					    } else {
-						callbackContext.error("No Token found");
-					    }
-					} catch (Exception e) {
-					    callbackContext.error("Authenticator error: " + e.getLocalizedMessage());
+							if (authtoken != null) {
+								JSONObject result = new JSONObject();
+								result.put("value", authtoken);
+								callbackContext.success(result);
+							} else {
+								callbackContext.error("No Token found");
+							}
+						} catch (Exception e) {
+							callbackContext.error("Authenticator error: " + e.getLocalizedMessage());
+						}
 					}
-				    }
 				}, null);
 				return true;
 			    }

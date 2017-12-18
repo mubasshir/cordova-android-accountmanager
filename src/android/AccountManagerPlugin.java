@@ -90,8 +90,8 @@ public class AccountManagerPlugin extends CordovaPlugin
 					}
 				    }
 				}, null);
+				return true;
 			    }
-			    return true;
 			else if("getAccountsByType".equals(action))
 			{
 				Account[] account_list = manager.getAccountsByType(args.isNull(0)? null : args.getString(0));
